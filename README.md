@@ -2,17 +2,14 @@ Proyecto Terraform: Infraestructura con Docker (Nginx, Grafana, PostgreSQL y Red
 
 Este proyecto define y despliega una infraestructura ligera basada en Docker utilizando Terraform, con servicios clave para aplicaciones modernas:
 
-Nginx (3 instancias balanceadas)
-
-Grafana (monitorización)
-
-PostgreSQL (base de datos relacional)
-
-Redis (cache y persistencia)
+Nginx (3 instancias balanceadas):
+-Grafana (monitorización)
+-PostgreSQL (base de datos relacional)
+-Redis (cache y persistencia)
 
 La infraestructura se conecta a través de redes Docker dedicadas para aplicaciones, persistencia y monitorización.
 
-📂 Estructura del proyecto
+Estructura del proyecto
 .
 ├── grafana.tf          # Contenedor Grafana
 ├── main.tf             # Configuración de Terraform y proveedor Docker
@@ -36,7 +33,7 @@ Windows: habilitar npipe:////./pipe/docker_engine
 
 Linux/macOS: usar unix:///var/run/docker.sock
 
-📦 Instalación y uso
+Instalación y uso
 
 Clonar el repositorio
 
@@ -58,7 +55,7 @@ Aplicar la configuración
 
 terraform apply -auto-approve
 
-🌐 Servicios desplegados
+Servicios desplegados
 Servicio	Puerto Local	URL de acceso
 Nginx 1	8081	http://localhost:8081
 
@@ -70,7 +67,7 @@ Grafana	3030	http://localhost:3030
 
 Postgres	15432	localhost:15432
 Redis	16379	localhost:16379
-🔑 Variables
+Variables
 
 Las variables principales están definidas en variables.tf y parametrizadas en terraform.tfvars.
 
@@ -81,26 +78,18 @@ postgres_db	Base de datos inicial	appdb
 
 Puedes modificar los valores en terraform.tfvars.
 
-📤 Outputs
-
+Outputs
 Después de aplicar la infraestructura, Terraform mostrará:
-
 nginx_urls → URLs de los contenedores Nginx
-
 grafana_url → URL de Grafana
-
 postgres_credentials → Credenciales de PostgreSQL (sensibles)
 
-🧹 Limpieza
-
+Limpieza
 Para eliminar toda la infraestructura:
-
 terraform destroy -auto-approve
 
-📝 Convenciones de commits
-
-Este proyecto sigue la especificación de Conventional Commits
-:
+Convenciones de commits
+Este proyecto sigue la especificación de Conventional Commits:
 
 feat: Nueva funcionalidad
 
@@ -113,9 +102,3 @@ style: Formato, estilos, sin cambios de lógica
 refactor: Refactorización de código
 
 test: Añadir o modificar pruebas
-
-chore: Tareas de mantenimiento
-
-Ejemplo:
-
-feat(nginx): agregar despliegue de 3 contenedores balanceados
